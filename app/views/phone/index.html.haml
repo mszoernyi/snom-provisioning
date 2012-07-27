@@ -1,0 +1,27 @@
+- model_class = Phone.new.class
+.page-header
+  %h1=t '.title', :default => model_class.model_name.human.pluralize
+%table.table.table-striped
+  %thead
+    %tr
+      %th= model_class.human_attribute_name(:id)
+      %th= model_class.human_attribute_name(:mac)
+      %th= model_class.human_attribute_name(:sip_login)
+      %th= model_class.human_attribute_name(:sip_password)
+      %th= model_class.human_attribute_name(:number)
+      %th= model_class.human_attribute_name(:created_at)
+      %th=t '.actions', :default => t("helpers.actions")
+  %tbody
+    - @phones.each do |phone|
+      %tr
+        %td= link_to phone.id, phone_path(phone)
+        %td= phone.mac
+        %td= phone.sip_login
+        %td= phone.sip_password
+        %td= phone.number
+        %td=l phone.created_at
+        %td
+          = link_to t('.edit', :default => t("helpers.links.edit")), edit_phone_path(phone), :class => 'btn btn-mini'
+          = link_to t('.destroy', :default => t("helpers.links.destroy")), phone_path(phone), :method => :delete, :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')), :class => 'btn btn-mini btn-danger'
+
+= link_to t('.new', :default => t("helpers.links.new")), new_phone_path, :class => 'btn btn-primary'

@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Mac:
+  = @phone.mac
+%p
+  %b Sip login:
+  = @phone.sip_login
+%p
+  %b Sip password:
+  = @phone.sip_password
+%p
+  %b Number:
+  = @phone.number
+
+= link_to 'Edit', edit_phone_path(@phone)
+\|
+= link_to 'Back', phones_path

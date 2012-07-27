@@ -1,0 +1,25 @@
+- model_class = @phone.class
+.page-header
+  %h1=t '.title', :default => model_class.model_name.human
+
+%p
+  %strong= model_class.human_attribute_name(:mac) + ':'
+  %br
+  = @phone.mac
+%p
+  %strong= model_class.human_attribute_name(:sip_login) + ':'
+  %br
+  = @phone.sip_login
+%p
+  %strong= model_class.human_attribute_name(:sip_password) + ':'
+  %br
+  = @phone.sip_password
+%p
+  %strong= model_class.human_attribute_name(:number) + ':'
+  %br
+  = @phone.number
+
+.form-actions
+  = link_to t('.back', :default => t("helpers.links.back")), phone_path, :class => 'btn'
+  = link_to t('.edit', :default => t("helpers.links.edit")), edit_phone_path(@phone), :class => 'btn'
+  = link_to t('.destroy', :default => t("helpers.links.destroy")), phone_path(@phone), :method => "delete", :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')), :class => 'btn btn-danger'
