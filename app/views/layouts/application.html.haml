@@ -23,21 +23,22 @@
             %span.icon-bar
             %span.icon-bar
           %a.brand(href="#") SnomProvisioning
-          .container.nav-collapse
+          .container
             %ul.nav
               %li= link_to "Global Settings", "/path1"
               %li= link_to "Phones", phones_path()
+              %li= link_to "Unknown Phones", unknown_phones_path()
 
     .container-fluid
 
       .row-fluid
-        .span3
-          .well.sidebar-nav
-            %ul.nav.nav-list
-              %li.nav-header Sidebar
-              %li= link_to "Link 1", "/path1"
-              %li= link_to "Link 2", "/path2"
-              %li= link_to "Link 3", "/path3"
+        -#.span3
+          -#.well.sidebar-nav
+            -#%ul.nav.nav-list
+              -#%li.nav-header Sidebar
+              -#%li= link_to "Link 1", "/path1"
+              -#%li= link_to "Link 2", "/path2"
+              -#%li= link_to "Link 3", "/path3"
         .span9
           = yield
     

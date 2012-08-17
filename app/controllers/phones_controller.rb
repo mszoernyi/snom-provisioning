@@ -25,6 +25,7 @@ class PhonesController < ApplicationController
   # GET /phones/new.json
   def new
     @phone = Phone.new
+    @phone.mac = params[:mac] if params[:mac]
 
     respond_to do |format|
       format.html # new.html.erb

@@ -1,0 +1,25 @@
+defaults: &defaults
+  adapter: mysql2
+  encoding: utf8
+  host: localhost
+  username: root
+  password:
+
+<%= file = File.join(Rails.root, "config", "database.login.yml")
+    IO.read(file) if File.exist?(file) %>
+
+production:
+  database: snom_production
+  <<: *login
+
+staging:
+  database: snom_staging
+  <<: *login
+
+development:
+  database: snom_development
+  <<: *login
+
+test:
+  database: snom_testing
+  <<: *login

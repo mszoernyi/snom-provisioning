@@ -11,13 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120727111711) do
+ActiveRecord::Schema.define(:version => 20120813143226) do
 
   create_table "phones", :force => true do |t|
     t.string   "mac"
     t.string   "sip_login"
     t.string   "sip_password"
     t.string   "number"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  create_table "unknown_phones", :force => true do |t|
+    t.string   "mac_address"
+    t.string   "requester_ip"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
   end
