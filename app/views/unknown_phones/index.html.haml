@@ -1,0 +1,22 @@
+- model_class = UnknownPhone.new.class
+.page-header
+  %h1=t '.title', :default => model_class.model_name.human.pluralize
+%table.table.table-striped
+  %thead
+    %tr
+      %th= model_class.human_attribute_name(:id)
+      %th= model_class.human_attribute_name(:mac_address)
+      %th= model_class.human_attribute_name(:requester_ip)
+      %th= model_class.human_attribute_name(:created_at)
+      %th=t '.actions', :default => t("helpers.actions")
+  %tbody
+    - @unknown_phones.each do |unknown_phone|
+      %tr
+        %td= link_to unknown_phone.id, unknown_phone_path(unknown_phone)
+        %td= unknown_phone.mac_address
+        %td= unknown_phone.requester_ip
+        %td=l unknown_phone.created_at
+        %td
+          = link_to t('.new', :default => t("helpers.links.new")), new_phone_path(:mac => unknown_phone.mac_address), :class => 'btn btn-mini'
+
+= link_to t('.new', :default => t("helpers.links.new")), new_unknown_phone_path, :class => 'btn btn-primary'
